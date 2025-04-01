@@ -106,20 +106,20 @@ const Payments = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col items-center py-10">
-      <div className="w-full max-w-7xl px-10">
+    <div className="bg-gray-50 min-h-screen flex flex-col items-center py-10 w-full">
+      <div className="w-full max-w-screen-xl px-6">
         <h1 className="text-5xl font-extrabold text-maroon text-center mb-6">
           Payments
         </h1>
-        <div className="flex justify-between items-center mb-6 p-4 bg-white shadow-lg rounded-lg">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 p-4 bg-white shadow-lg rounded-lg gap-4">
           <StatCard
             title="Total Payments"
             value={filteredPayments.length}
             icon={FaMoneyBillWave}
-            color="bg-blue-100 text-white"
+            color="bg-blue-100 text-black"
           />
-          <div className="flex gap-4">
-            <select
+          <div className="flex flex-wrap gap-4">
+          <select
               className="p-3 border rounded-lg shadow-sm text-lg"
               onChange={(e) => setSortOrder(e.target.value)}
               value={sortOrder}
@@ -147,7 +147,7 @@ const Payments = () => {
           </div>
         </div>
 
-        <div className="bg-white p-8 w-full rounded-xl shadow-lg">
+        <div className="bg-white p-8 w-full rounded-xl shadow-lg overflow-x-auto">
           <h2 className="text-2xl font-bold text-maroon text-center mb-6">
             Recent Payments
           </h2>
@@ -197,7 +197,7 @@ const Payments = () => {
             >
               Previous
             </button>
-            <span className="mx-4 text-lg font-semibold">
+            <span className="mx-4 text-lg font-semi bold">
               Page {currentPage} of{" "}
               {Math.ceil(filteredPayments.length / itemsPerPage)}
             </span>
@@ -228,4 +228,3 @@ const StatCard = ({ title, value, icon: Icon, color }) => (
 );
 
 export default Payments;
-
